@@ -19,29 +19,51 @@ namespace KataBankOCR
         string[][] tmp = new string[NO_ELEMENTS][];
         string fileContent = File.ReadAllText(filename);
 
-        var tmp2 = GetDigit(fileContent, 1);
+        var tmp2 = GetDigit(fileContent);
         
         
       }
 
-      private static string[][] GetDigit(string fileContent, short digitPos)
+      private static IDictionary<short, string> GetDigit(string fileContent)
       {
-        string[][] tmp = new string[ENTRY_LINES][];
+        IDictionary<short, string> tmp =
+          new Dictionary<short, string>();
+
 
         StringReader sr = new StringReader(fileContent);
         string tmpLine = string.Empty;
-        short lineNo = 0;
-        int startPos = digitPos * ENTRY_LENGTH;
+        
+        
         while (tmpLine != null)
         {
+          short digitIndex = 0;
           tmpLine = sr.ReadLine();
-          tmp[lineNo] = new string[ENTRY_LENGTH];
-
-          for (int i = startPos; i < (startPos + ENTRY_LENGTH); i++)
+          if (tmpLine == null)
+            break;
+          if(!tmp.ContainsKey(digitIndex))
+            tmp.Add(new KeyValuePair<short,string>(digitIndex, string.Empty));
+          
+          for (int i = 0; i < LINE_LENGTH; i++)
           {
-            tmp[lineNo][i] = tmpLine.Substring(i, 1);
-          }
-          lineNo++;
+            if (i > 0 && i % ENTRY_LINES == 0)
+              continue;
+
+            string tmpS = tmpLine.Substring(i, 1);
+            if (string.IsNullOrEmpty(tmpS) || string.IsNullOrWhiteSpace(tmpS))
+              tmp[digitIndex] += "0";
+            else
+              tmp[digitIndex] += "1";
+
+            if (i > 0 && i % ENTRY_LENGTH - 1 == 0)
+            {
+              digitIndex++;
+              if (!tmp.ContainsKey(digitIndex))
+                tmp.Add(new KeyValuePair<short, string>(digitIndex, string.Empty));
+            }
+            
+              
+            
+          }          
         }
 
 
