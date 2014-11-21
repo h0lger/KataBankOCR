@@ -11,7 +11,7 @@ namespace KataBankOCR
     {
       
       const short LINE_LENGTH = Entry.DIGIT_MAX * Entry.DIGIT_LENGTH;
-      const short ENTRY_LINES = 3; //each entry is n lines
+      const short ENTRY_LINES = 4; //each entry is n lines
       
 
       public static void ReadFile(string filename)

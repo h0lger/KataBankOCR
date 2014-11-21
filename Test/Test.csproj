@@ -57,6 +57,15 @@
     <Content Include="TestFiles\fill_0.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="TestFiles\fill_1.txt" />
+    <Content Include="TestFiles\fill_2.txt" />
+    <Content Include="TestFiles\fill_3.txt" />
+    <Content Include="TestFiles\fill_4.txt" />
+    <Content Include="TestFiles\fill_5.txt" />
+    <Content Include="TestFiles\fill_6.txt" />
+    <Content Include="TestFiles\fill_7.txt" />
+    <Content Include="TestFiles\fill_8.txt" />
+    <Content Include="TestFiles\fill_9.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\KataBankOCR\KataBankOCR.csproj">
