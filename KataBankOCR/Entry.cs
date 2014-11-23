@@ -36,6 +36,12 @@ namespace KataBankOCR
         case 6:
           number = 0;
           break;
+        case 2:
+          number = 1;
+          break;
+        case 5:
+          number = 2;
+          break;
 
         default:
           return false;
