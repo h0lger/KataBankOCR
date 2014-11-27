@@ -8,6 +8,8 @@ namespace KataBankOCR
 {
   public class Entry
   {
+    public const short LINE_LENGTH = Entry.DIGIT_MAX * Entry.DIGIT_LENGTH;
+    public const short ENTRY_LINES = 4; //each entry is n lines
     public const short DIGIT_LENGTH = 3;
     public const short DIGIT_MIN = 1;
     public const short DIGIT_MAX = 9;
@@ -33,6 +35,12 @@ namespace KataBankOCR
       {
         case 6:
           number = 0;
+          break;
+        case 2:
+          number = 1;
+          break;
+        case 5:
+          number = 2;
           break;
 
         default:
