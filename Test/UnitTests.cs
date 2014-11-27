@@ -26,6 +26,11 @@ namespace Test
        ents = BankOCR.GetEntriesFromFile(GetTestFileName("1"));
        Assert.AreEqual(1, ents.Count);
        ValidateEntries(ents[0], 9, 1);
+
+       //Get file with only 2
+       ents = BankOCR.GetEntriesFromFile(GetTestFileName("2"));
+       Assert.AreEqual(1, ents.Count);
+       ValidateEntries(ents[0], 9, 2);
     }
 
     #region Help methods
